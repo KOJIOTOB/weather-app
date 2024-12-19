@@ -1,0 +1,125 @@
+button {
+  margin: 16px auto;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  border: none;
+  border-radius: 12px;
+  width: 160px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 
+    transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), 
+    box-shadow 0.6s ease, 
+    background 0.6s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(95, 175, 254, 0.5);
+}
+
+button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 24px rgba(255, 71, 87, 0.5);
+  background: linear-gradient(135deg, #ff4757, #ff6b6b);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  margin: 20px 0;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeInShake 1.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  transition: 
+    background 0.6s ease, 
+    box-shadow 0.6s ease;
+}
+
+@keyframes fadeInShake {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateX(0);
+  }
+  20% {
+    opacity: 0.5;
+    transform: scale(1.05) translateX(-10px);
+  }
+  40% {
+    opacity: 0.7;
+    transform: scale(1) translateX(10px);
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(1.05) translateX(-10px);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1) translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+.error::before {
+  content: '⚠️';
+  font-size: 1.5rem;
+  animation: rotateWarning 3s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes rotateWarning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button,
+.error {
+  transition: all 0.6s ease-in-out;
+}

@@ -1,0 +1,62 @@
+<div *ngIf="weather || hasForecast()" class="weather-container">
+
+  <section class="current-weather-section" *ngIf="weather">
+    <mat-card class="weather-card">
+      <button
+        mat-icon-button
+        class="close-button"
+        (click)="clearAllData()"
+        aria-label="Close"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-card-header>
+        <mat-card-title>{{ weather.name }}</mat-card-title>
+        <mat-card-subtitle>{{ weather.weather[0].description | titlecase }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="current-weather">
+          <img
+            *ngIf="weather.weather[0]?.icon"
+            [src]="getWeatherIcon(weather.weather[0].icon)"
+            alt="Weather Icon"
+          />
+          <div class="weather-details">
+            <p><strong>Temperature:</strong> {{ weather.main.temp }}°C</p>
+            <p>
+              <strong>Min:</strong> {{ weather.main.temp_min }}°C |
+              <strong>Max:</strong> {{ weather.main.temp_max }}°C
+            </p>
+            <p><strong>Humidity:</strong> {{ weather.main.humidity }}%</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section class="forecast-section" *ngIf="hasForecast()">
+    <mat-card class="forecast-card">
+      <mat-card-header>
+        <mat-card-title>5-Day Forecast</mat-card-title>
+      </mat-card-header>
+      <mat-list>
+        <mat-list-item *ngFor="let day of forecast; trackBy: trackByForecast">
+          <img
+            *ngIf="day.weather[0]?.icon"
+            [src]="getWeatherIcon(day.weather[0].icon)"
+            alt="Weather Icon"
+          />
+          <div class="forecast-details">
+            <p><strong>Date:</strong> {{ day.dt_txt | date: 'EEEE, MMM d' }}</p>
+            <p>
+              <strong>Temperature:</strong> Min: {{ day.main.temp_min }}°C |
+              Max: {{ day.main.temp_max }}°C
+            </p>
+            <p><strong>Weather:</strong> {{ day.weather[0].description | titlecase }}</p>
+            <p><strong>Humidity:</strong> {{ day.main.humidity || 'N/A' }}%</p>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </section>
+</div>

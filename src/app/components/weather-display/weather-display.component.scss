@@ -1,0 +1,312 @@
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #f0f4f8;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+}
+
+.current-weather-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease-in-out;
+}
+
+.weather-card {
+  position: relative;
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.weather-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transition: background 0.6s ease-in-out, color 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.close-button:hover {
+  background: #ff5f5f;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card mat-card-header {
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.6s ease-in-out;
+}
+
+.weather-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.weather-card mat-card-title:hover {
+  color: #ff4757;
+  transform: translateY(-2px);
+}
+
+.weather-card mat-card-subtitle {
+  font-size: 1rem;
+  color: #555;
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.weather-card mat-card-subtitle:hover {
+  color: #2a7bd4;
+  transform: translateY(-2px);
+}
+
+.weather-card mat-card-content {
+  padding: 20px;
+  transition: all 0.6s ease-in-out;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.6s ease-in-out;
+}
+
+.current-weather img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.current-weather img:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.6s ease-in-out;
+}
+
+.weather-details p {
+  margin: 0;
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.weather-details p:hover {
+  color: #2a7bd4;
+  transform: translateY(-2px);
+}
+
+.weather-details p strong {
+  color: #444;
+}
+
+.forecast-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  transition: all 0.6s ease-in-out;
+}
+
+.forecast-card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.forecast-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-card mat-card-header {
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.6s ease-in-out;
+}
+
+.forecast-card mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.forecast-card mat-card-title:hover {
+  color: #ff4757;
+  transform: translateY(-2px);
+}
+
+.forecast-card mat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+  transition: all 0.6s ease-in-out;
+}
+
+.forecast-card mat-list-item {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.6s ease-in-out, background 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.forecast-card mat-list-item:hover {
+  transform: scale(1.02);
+  background: #f1f1f1;
+}
+
+.forecast-card mat-list-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  transition: transform 0.6s ease-in-out;
+}
+
+.forecast-card mat-list-item img:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.forecast-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: all 0.6s ease-in-out;
+}
+
+.forecast-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.forecast-details p:hover {
+  color: #2a7bd4;
+  transform: translateY(-2px);
+}
+
+.forecast-details p strong {
+  font-weight: 500;
+  color: #444;
+}
+
+@media screen and (max-width: 767px) {
+  .weather-card,
+  .forecast-card {
+    max-width: 100%;
+    margin: 0 auto;
+    transition: all 0.6s ease-in-out;
+  }
+
+  .current-weather {
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.6s ease-in-out;
+  }
+
+  .forecast-card mat-list-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.6s ease-in-out;
+  }
+
+  .forecast-card mat-list-item img {
+    margin-right: 0;
+    margin-bottom: 10px;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .forecast-card mat-list-item img:hover {
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
+.forecast-card mat-list::-webkit-scrollbar {
+  width: 6px;
+  transition: all 0.6s ease-in-out;
+}
+
+.forecast-card mat-list::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 3px;
+  transition: background-color 0.6s ease-in-out;
+}
+
+.forecast-card mat-list::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}
+
+.close-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(95, 175, 254, 0.5);
+  transition: box-shadow 0.6s ease-in-out;
+}
+
+button,
+.forecast-card mat-list-item {
+  transition: transform 0.6s ease-in-out, background 0.6s ease-in-out;
+}
+
+.weather-card:hover,
+.forecast-card:hover,
+.forecast-card mat-list-item:hover {
+  transform: scale(1.02);
+}
+
+.weather-card mat-card-title,
+.forecast-card mat-card-title {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transition: text-shadow 0.6s ease-in-out, color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.weather-card mat-card-subtitle,
+.forecast-details p {
+  transition: color 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.weather-card mat-card-subtitle:hover,
+.forecast-details p:hover {
+  color: #2a7bd4;
+  transform: translateY(-2px);
+}

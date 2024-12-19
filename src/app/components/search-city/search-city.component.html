@@ -1,0 +1,37 @@
+<div class="search-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Enter city name</mat-label>
+    <input
+      matInput
+      [formControl]="cityControl"
+      (keyup.enter)="searchCity()"
+      placeholder="Search for a city"
+    />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!cityControl.valid"
+    (click)="searchCity()"
+  >
+    Search
+  </button>
+</div>
+
+<div *ngIf="loading" class="loading">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>
+
+<div *ngIf="error" class="error">
+  <mat-icon color="warn">error_outline</mat-icon> 
+  {{ error }}
+  <button mat-icon-button (click)="clearError()" aria-label="Dismiss">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<app-weather-display
+  *ngIf="weatherData"
+  [weather]="weatherData"
+  [forecast]="forecastData"
+></app-weather-display>
